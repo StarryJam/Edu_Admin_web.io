@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户管理</title>
+<script type="text/javascript">
+window.onload=function(){
+	var oDiv=document.getElementsByClassName("div1");
+	for(var i=0;i<oDiv.length;i++)
+	{
+		oDiv[i].onmousemove=function(){
+			for(var j=0;j<oDiv.length;j++){
+			  oDiv[j].id="";
+			}
+			this.id='active';
+		};
+		oDiv[i].onmouseout=function(){
+			this.id='';
+		};
+		
+	}
+};
+</script>
+<link type="text/css" rel="stylesheet" charset="utf-8" href="../CSS/SubMenu.css" />
+
+</head>
+<div class='div1'><h2>等级考试报名</h2><p>内容</p></div>
+
+<body>
+</body>
+</html>

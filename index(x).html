@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ body{padding:0; margin:0;}
+.div1{height: 100%; width: 50%; position: absolute; text-align:center; background: #36383B; overflow:hidden}
+.div2{height: 100%; width: 50%; position: absolute; text-align:center; background: #F7F7F7; overflow:hidden}
+.div1:hover{ background:#922E2F}
+.formbox{position:absolute; top:50%; left:50%; margin:-50px 0px 0px -165px; width:330px; height:180px;}
+.textbox{position:absolute; top:50%; left:50%; margin:-120px 0px 0px -165px; width:330px; height:180px; text-align:center; font-size:36px; font-family:"方正姚体"}
+.imagebox{position:absolute; top:50%; left:50%; margin:-250px 0px 0px -47px; background:#800002; width:100px; height:100px;}
+
+h1{ font-size:50px}
+td{
+	font-size: 20px;
+	border-radius: 3px;
+}
+input{ border:1px solid #B0B0B0; width:280px; height:30px; font-size:19px; padding-left:10px;border-radius:3px; }
+button{
+	width: 292px;
+	height: 37px;
+	font-size: 19px;
+	background: #C4CDAD;
+	border: 1px solid #D9D9D9;
+	color: #FFFFFF;
+	border-radius: 3px
+}
+#active{border:1px solid  #DBDBDB}
+#btn_act{background: #CED5BB; border:1px solid #E4E4E4;}
+#d1_act{background: #3F4144}
+#d2_act{background:#EBEBEB}
+</style>
+<script>
+window.onload=function(){
+	var oInp=document.getElementsByTagName("input");
+	var oBtn=document.getElementsByTagName("button");
+	var oDiv1=document.getElementsByName('d1');
+	var oDiv2=document.getElementsByName('d2');
+	var oDiv3=document.getElementsByClassName('formbox');
+	for(var i=0;i<oInp.length;i++)
+	{
+		oInp[i].onmousemove=function(){
+			for(var j=0;j<oInp.length;j++){
+			  oInp[j].id="";
+			}
+			this.id='active';
+		};
+		oInp[i].onmouseout=function(){
+			this.id='';
+		};
+	}
+	for(var i=0;i<oBtn.length;i++)
+	{
+		oBtn[i].onmousemove=function(){
+			this.id='btn_act';
+		};
+		oBtn[i].onmouseout=function(){
+			this.id='';
+		};
+	}
+	oDiv1[0].onclick=function(){
+		oDiv3[0].style.display='block';
+		oDiv3[1].style.display='none';
+	};
+	oDiv2[0].onclick=function(){
+		oDiv3[1].style.display='block';
+		oDiv3[0].style.display='none';
+	};
+	oDiv1[0].onmousemove=function(){
+		this.id='d1_act';
+	};
+	oDiv1[0].onmouseout=function(){
+		this.id='';
+	};
+	oDiv2[0].onmousemove=function(){
+		this.id='d2_act';
+	};
+	oDiv2[0].onmouseout=function(){
+		this.id='';
+	};
+};
+</script>
+</head>
+<div class='div1' name='d1' style=" left:0;">
+	<div class="imagebox"></div>
+    <div class="textbox" style="color:#FFFFFF">学生登陆</div>
+	<div class='formbox' style="display:none">
+            <form>
+          
+            <table align="center" cellspacing="11px"						>
+              <tr height="30">
+                <td align="center"><input type="text" name="username" placeholder="学号">
+                </td>
+              </tr>
+               <tr height="30">
+                <td align="center"><input type="password" name="password" placeholder="密码">
+                </td>
+              </tr>
+              </tr>
+               <tr height="30">
+                <td align="center"><button type="submit" name="login">登 录</button>
+                </td>
+              </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div class='div2' name='d2' style="left:50%;">
+	<div class="imagebox"></div>
+    <div class="textbox" style="color:#36383B">教师登陆</div>
+	<div class='formbox' style="display:none">
+            <form>
+          
+            <table align="center" cellspacing="11px"						>
+              <tr height="30">
+                <td align="center"><input type="text" name="username" placeholder="工号">
+                </td>
+              </tr>
+               <tr height="30">
+                <td align="center"><input type="password" name="password" placeholder="密码">
+                </td>
+              </tr>
+              </tr>
+               <tr height="30">
+                <td align="center"><button type="submit" name="login">登 录</button>
+                </td>
+              </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<body>
+</body>
+</html>

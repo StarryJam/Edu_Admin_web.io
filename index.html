@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+.wrong{-webkit-animation: wrong 0.6s}
+@keyframes wrong{0%{} 25%{background:##FFCACA} 50%{background:#FFEFEF} 75%{background:#FFCACA} 100%{background:#ffffff}}
+.wrong1{-webkit-animation: wrong1 0.6s}
+@keyframes wrong1{0%{} 25%{background:#FFCACA} 50%{background:#FFEFEF} 75%{background:#FFCACA} 100%{background:#ffffff}}
+
+ body{padding:0; margin:0;}
+.div1{height: 100%; width: 50%; position: absolute; text-align:center; background: #36383B; overflow:hidden;}
+.div2{height: 100%; width: 50%; position: absolute; text-align:center; background: #FFFFFF; overflow:hidden; margin-right:0; right:0%;}
+
+@keyframes d1_1{from{} to{width:80%;}}
+@keyframes d1_2{from{} to{width:50%;}}
+@keyframes d1_3{from{} to{width:20%;}}
+@keyframes d2_1{from{} to{width:80%;}}
+@keyframes d2_2{from{} to{width:50%;}}
+@keyframes d2_3{from{} to{width:20%;}}
+
+#d1_act_1{-webkit-animation: d1_1 1s forwards;}
+#d1_act_2{-webkit-animation: d1_2 1s forwards;}
+#d1_act_3{-webkit-animation: d1_3 1s forwards;}
+#d1_act_4{width:20%;-webkit-animation: d1_1 1s forwards;}
+#d1_act_5{width:80%;-webkit-animation: d1_3 1s forwards;}
+#d2_act_1{-webkit-animation: d2_1 1s forwards;}
+#d2_act_2{-webkit-animation: d2_2 1s forwards;}
+#d2_act_3{-webkit-animation: d2_3 1s forwards;}
+#d2_act_4{width:20%;-webkit-animation: d2_1 1s forwards;}
+#d2_act_5{width:80%;-webkit-animation: d2_3 1s forwards;}
+
+
+
+.formbox{position:absolute; top:50%; left:50%; margin:-50px 0px 0px -165px; width:330px; height:180px;}
+#formact{opacity:0;-webkit-animation: f1 1s forwards;}
+@keyframes f1{from{} to{opacity:1}}
+
+.textbox{position:absolute; top:50%; left:50%; margin:-120px 0px 0px -165px; width:330px; height:180px; text-align:center; font-size:36px; font-family:"方正姚体"}
+.imagebox{position:absolute; top:50%; left:50%; margin:-250px 0px 0px -47px; background:; width:100px; height:100px;}
+
+h1{ font-size:50px}
+td{
+	font-size: 20px;
+	border-radius: 3px;
+}
+input{ border:1px solid #B0B0B0; width:280px; height:30px; font-size:19px; padding-left:10px;border-radius:3px; }
+button{
+	width: 292px;
+	height: 37px;
+	font-size: 19px;
+	background: #C4CDAD;
+	border: 1px solid #D9D9D9;
+	color: #FFFFFF;
+	border-radius: 3px
+}
+#active{border:1px solid  #DBDBDB}
+#btn_act{background: #CED5BB; border:1px solid #E4E4E4;}
+
+</style>
+<script>
+window.onload=function(){
+	var oInp=document.getElementsByTagName("input");
+	var oBtn=document.getElementsByTagName("button");
+	var oDiv1=document.getElementsByName('d1');
+	var oDiv2=document.getElementsByName('d2');
+	var oDiv3=document.getElementsByClassName('formbox');
+
+	
+	for(var i=0;i<oInp.length;i++)
+	{
+		oInp[i].onmousemove=function(){
+			for(var j=0;j<oInp.length;j++){
+			  oInp[j].id="";
+			}
+			this.id='active';
+		};
+		oInp[i].onmouseout=function(){
+			this.id='';
+		};
+	}
+	for(var i=0;i<oBtn.length;i++)
+	{
+		oBtn[i].onmousemove=function(){
+			this.id='btn_act';
+		};
+		oBtn[i].onmouseout=function(){
+			this.id='';
+		};
+	}
+	
+	oDiv1[0].onmousemove=function(){
+		if(this.offsetWidth<=document.body.offsetWidth/2+1){
+			this.style.background='#3F4144';
+		}
+	};
+	
+	oDiv1[0].onmouseout=function(){
+		this.style.background='#36383B';
+	};
+	
+	oDiv2[0].onmousemove=function(){
+		if(this.offsetWidth<=document.body.offsetWidth/2+1){
+			this.style.background='#F5F5F5';
+		}
+	};
+	
+	oDiv2[0].onmouseout=function(){
+		this.style.background='#FFFFFF';
+	};
+	
+	oDiv1[0].onclick=function(){
+		
+		this.onmousemove=function(){
+			this.style.background='#36383B';
+		};
+		oDiv2[0].onmousemove=function(){
+			this.style.background='#ECECEC';
+		};
+		oDiv3[0].style.display='block';
+		oDiv3[0].id='formact';
+		oDiv3[1].style.display='none';
+		if(this.offsetWidth>=document.body.offsetWidth/2-1){
+			this.id='d1_act_1';
+			oDiv2[0].id='d2_act_3';
+		}
+		else{
+			this.id='d1_act_4';
+			oDiv2[0].id='d2_act_5';
+		}
+	};
+	
+	oDiv2[0].onclick=function(){
+		for(var i=0; i<oInp.length; i++){
+			oInp[i].className='';
+		}
+		this.onmousemove=function(){
+			this.style.background='#FFFFFF';
+		};
+		oDiv1[0].onmousemove=function(){
+			this.style.background='#3F4144';
+		};
+		oDiv3[1].style.display='block';
+		oDiv3[1].id='formact';
+		oDiv3[0].style.display='none';
+		if(this.offsetWidth>=document.body.offsetWidth/2-1){
+			
+			this.id='d2_act_1';
+			oDiv1[0].id='d1_act_3';
+		}
+		else{
+			this.id='d2_act_4';
+			oDiv1[0].id='d1_act_5';
+			
+		}
+	};
+	
+		for(var i=0; i<oInp.length; i++){
+		oInp[i].onmousemove=function(){
+			if(this.className=='wrong'){
+				this.className='wrong1';
+			}
+			else{
+				this.className='wrong';
+			}
+		}
+	}
+	
+};
+</script>
+</head>
+<div class='div1' name='d1' style=" left:0;">
+	<div class="imagebox"><img src="images/student.png" width="100%" height="100%"/></div>
+    <div class="textbox" style="color:#FFFFFF">学生登陆</div>
+	<div class='formbox' style="display:none">
+            <form>
+          
+            <table align="center" cellspacing="11px"						>
+              <tr height="30">
+                <td align="center"><input type="text" name="username" placeholder="学号">
+                </td>
+              </tr>
+               <tr height="30">
+                <td align="center"><input type="password" name="password" placeholder="密码">
+                </td>
+              </tr>
+              </tr>
+               <tr height="30">
+                <td align="center"><button type="submit" name="login">登 录</button>
+                </td>
+              </tr>
+            </table>
+        </form>
+    </div>
+</div>
+<div class='div2' name='d2'>
+	<iframe name="formsub" style="display:none">
+    </iframe>
+	<div class="imagebox"><img src="images/teacher.png" width="100%" height="100%"/></div>
+    <div class="textbox" style="color:#36383B">教师登陆</div>
+	<div class='formbox' style="display:none">
+            <form>
+          
+            <table align="center" cellspacing="11px"						>
+              <tr height="30">
+                <td align="center"><input type="text" name="username" placeholder="工号">
+                </td>
+              </tr>
+               <tr height="30">
+                <td align="center"><input type="password" name="password" placeholder="密码">
+                </td>
+              </tr>
+              </tr>
+               <tr height="30">
+                <td align="center"><button type="submit" name="login">登 录</button>
+                </td>
+              </tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+<body>
+</body>
+</html>

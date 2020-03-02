@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户管理</title>
+<script type="text/javascript" src="../js/SubMenu.js">
+</script>
+<link type="text/css" rel="stylesheet" charset="utf-8" href="../CSS/SubMenu.css" />
+<style>
+#tipbox{
+	height: 40px;
+	width: 600px;
+	margin:0 auto;
+	margin-top:150px;
+	border-bottom: 3px inset #000000;
+	padding-left:80px;
+	padding-top:20px;
+	font-family:'方正姚体'
+}
+#tipbox p{ 
+	font-size:23px; 
+	margin-top:8px; 
+	padding:0px; 
+} 
+#formbox{
+	height: 60px;
+	width: 600px;
+	margin:0 auto;
+	margin-top:20px;
+	padding-left:80px;
+	font-family:'方正姚体'
+}
+table td{height:40px; font-size:19px; text-align:center; border-width:0; background: #F7F7E4}
+#td_act td{ background:#EFEFCC}
+input{ border:1px solid #B0B0B0; width:300px; height:25px; font-size:15px; padding-left:5px;border-radius:2px; }
+button{height:30px; width:100px; font-family:"方正姚体"; font-size:17px}
+</style>
+<script>
+window.onload=function(){
+	var oTr=document.getElementsByTagName('tr');
+	for(var i=0;i<3;i++){
+		oTr[i].onmousemove=function(){
+			this.id='td_act';
+		};
+	}
+	for(var i=0;i<3;i++){
+		oTr[i].onmouseout=function(){
+			this.id='';
+		};
+	}
+};
+</script>
+</head>
+
+<body>
+<div class='fakebody'>
+	<div id='titlebox'> 密 码 修 改</div>
+    <div id='tipbox' >
+    	<p>
+        	<font color="#E15153" style="font-size: 26px; bottom:0">*提示：</font>初始密码为<font style="font-size:19px">123456</font>，密码的长度为<font style="font-size:19px">6~12</font>位字符
+        </p>
+    </div>
+    <div id="formbox">
+    	<form>
+        	<table>
+            	<tr><td width="100px">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码:</td><td width="450px" style="text-align:left; padding-left:8px"><input type="password"></td></tr>
+                <tr><td>修改密码:</td><td style="text-align:left; padding-left:8px"><input type="password"></td></tr>
+                <tr><td>确认修改:</td><td style="text-align:left; padding-left:8px"><input type="password"></td></tr>
+                <tr height="70px"><td style="background:#FFFFFF"></td><td style="text-align:right;background:#FFFFFF"><button>确 认</button></td></tr>
+            </table>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

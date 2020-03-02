@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css">
+body{
+	background: #D7D7D7;
+	padding: 0;
+	margin:0;
+	margin-top: 80px;
+	margin-left: 8px;
+}
+.menu_list{width:280px;margin:0 auto;}
+.menu_head{
+	height: 47px;
+	line-height: 47px;
+	padding-left: 38px;
+	font-size: 16px;
+	color: #C8C8C8;
+	cursor: pointer;
+	border-color: #65686E;
+	border-style: solid;
+	border-width: 1px 0px 1px 1px;
+	position: relative;
+	margin: 0px;
+	font-weight: bold;
+	background: #36383B url(images/pro_left.png) center right no-repeat;
+}
+.menu_list .current{background:#36383B url(images/pro_down.png) center right no-repeat;}
+.menu_body{
+	line-height: 38px;
+	border-left: 1px solid  #e1e1e1;
+	background: #EDEDED;
+	border-right: 1px solid #e1e1e1;
+}
+.menu_body a{display:block;height:38px;line-height:38px;padding-left:38px;color:#777777;background:#EDEDED;text-decoration:none;border-bottom:1px solid #B7B9BC;}
+.menu_body a:hover{text-decoration:none;}
+</style>
+</head>
+<body>
+
+<!-- 代码部分begin -->
+<div id="firstpane" class="menu_list">
+	<h3 class="menu_head current">用户管理</h3>
+	<div style="display:none" class="menu_body">
+		<a href="SubMenu/UserManage.html" target="rightFrame">密码修改</a>
+		<a href="#">注销</a>
+	</div>
+	<h3 class="menu_head">公共查询</h3>
+	<div style="display:none" class="menu_body">
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+	</div>
+	<h3 class="menu_head">教师管理</h3>
+	<div style="display:none" class="menu_body">
+		<a href="SubMenu/Stu_List.html" target="rightFrame">学生名单</a>
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+		<a href="#"></a>
+	</div>
+	<h3 class="menu_head">学生管理</h3>
+	<div style="display:none" class="menu_body">
+		<a href="SubMenu/C_SelecSys.html" target="rightFrame">选课系统</a>
+		<a href="SubMenu/RegiSys.html" target="rightFrame">报名系统</a>
+		<a href="SubMenu/CheckSys.html" target="rightFrame">查询系统</a>
+		<a href="SubMenu/EvaTeach.html" target="rightFrame">学生评教</a>
+	</div>
+</div>
+<script src="js/jquery.js"></script>
+<script>
+$(document).ready(function(){
+	$("#firstpane .menu_body:eq(0)").show();
+	$("#firstpane h3.menu_head").click(function(){
+		$(this).addClass("current").next("div.menu_body").slideToggle(300).siblings("div.menu_body").slideUp("slow");
+		$(this).siblings().removeClass("current");
+	});
+	$("#secondpane .menu_body:eq(0)").show();
+	$("#secondpane h3.menu_head").mouseover(function(){
+		$(this).addClass("current").next("div.menu_body").slideDown(500).siblings("div.menu_body").slideUp("slow");
+		$(this).siblings().removeClass("current");
+	});
+});
+</script>
+<!-- 代码部分end -->
+
+</body>
+</html>

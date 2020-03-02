@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户管理</title>
+<script type="text/javascript">
+window.onload=function(){
+	var oDiv=document.getElementById("box");
+	var aUl=oDiv.getElementsByTagName("ul");
+	for(var i=0;i<aUl.length;i++)
+	{
+		aUl[i].onclick=function(){
+			for(var j=0;j<aUl.length;j++){
+			  aUl[j].className='';
+			}
+			this.className='active';
+		};
+	}
+};
+</script>
+<style type="text/css">
+.div1{background: black; width:60px; float:left; height:50px; padding-left:=0px; margin-right:15px; clear:both;}
+
+#box{
+	width: 600px; height:500px; background:pink;
+}
+#box .active{background:#F9C900;}
+#sub{width:500px; height:300px; background:green; float:}
+.navbar {
+	overflow: hidden;
+	background:red;
+	width:100px;
+	height:50px;
+}
+</style>
+</head>
+<div id="box">
+	
+		<div class='div1'></div>
+    
+    <div class="navbar">
+    	<div id='sub'></div>
+    </div>
+</div>
+
+<body>
+</body>
+</html>
